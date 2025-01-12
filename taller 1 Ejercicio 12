@@ -1,0 +1,32 @@
+//  Implementa una función recursiva que calcule el n-ésimo número de Fibonacci. Usa una clase para encapsular la lógica
+
+#include <iostream>
+using namespace std;
+
+class Fibonacci {
+public:
+ int calcularFibonacci(int n) {
+     if (n <= 0) {
+        return 0;  // 
+        }
+        else if (n == 1) {
+        return 1;  
+        }
+        else {
+            return calcularFibonacci(n - 1) + calcularFibonacci(n - 2);
+        }
+    }
+};
+
+int main() {
+    int n;
+  cout << "Ingresa el valor de n: ";
+ cin >> n;
+
+ Fibonacci fibonacci;
+
+ int resultado = fibonacci.calcularFibonacci(n);
+ cout << "El número de Fibonacci en la posición " << n << " es: " << resultado << endl;
+
+ return 0;
+}

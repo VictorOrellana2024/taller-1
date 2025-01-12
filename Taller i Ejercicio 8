@@ -1,0 +1,37 @@
+//Crear un programa que permita al usuario ingresar el tamaño de un arreglo dinámico. Usar new para reservar memoria, llenar el arreglo con números ingresados por el usuario y luego mostrar los números. liberar la memoria con delete [].
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int tamaño;
+
+ // Solicitar el tamaño del arreglo dinámico
+ cout << "Ingrese el tamaño del arreglo: ";
+cin >> tamaño;
+
+ // Reservar memoria para el arreglo
+ int* arreglo = new int[tamaño];
+
+ // Llenar el arreglo con números ingresados por el usuario
+ cout << "Ingrese los " << tamaño << " números para el arreglo:\n";
+    for (int i = 0; i < tamaño; i++) {
+     cout << "Número " << i + 1 << ": ";
+    cin >> arreglo[i];
+    }
+
+ // Mostrar los números ingresados
+ cout << "\nLos números ingresados son:\n";
+    for (int i = 0; i < tamaño; i++) {
+     cout << arreglo[i] << " ";
+    }
+    cout << endl;
+
+// Liberar la memoria reservada para el arreglo
+ delete[] arreglo;
+
+ return 0;
+}

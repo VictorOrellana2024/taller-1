@@ -1,0 +1,31 @@
+//   Usa una union para almacenar un número entero y su representación en bytes. Crea un programa que permita al usuario ingresar un número entero y luego muestre sus bytes individuales.
+
+#include <iostream>
+#include <iomanip> // Para mostrar los bytes en forma individual
+
+using namespace std;
+
+// Definimos una unión
+union Numero {
+    int num;  // El número entero
+    unsigned char bytes[sizeof(int)]; // Arreglo para representar los bytes del número
+};
+
+int main() {
+ // Crear una instancia de la union
+Numero n;
+
+ // Pedir al usuario que ingrese un número entero
+ cout << "Ingresa un número entero: ";
+ cin >> n.num;
+
+ // Mostrar Bytes del número ingresado
+ cout << "Representación en bytes (hexadecimal): ";
+ for (size_t i = 0; i < sizeof(n.bytes); ++i) {
+    cout << "0x" << hex << setw(2) << setfill('0') << (int)n.bytes[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+

@@ -1,0 +1,47 @@
+// Crea una clase llamada Numero con un método que determine si el número almacenado es primo. Permite al usuario ingresar un número y muestra el resultado.
+
+#include <iostream>
+using namespace std;
+
+class Numero {
+private:
+    int num;
+
+public:
+ Numero(int n) : num(n) {}
+
+ //Verificar si el número es primo
+ bool esPrimo() {
+     if (num <= 1) {
+    return false; // Los números menores o iguales a 1 no son primos
+     }
+     for (int i = 2; i * i <= num; i++) {
+     if (num % i == 0) {
+   return false; // Si el número es divisible por cualquier número entre 2 y su raíz cuadrada, no es primo
+            }
+        }
+     return true; // Si no se encontró ningún divisor, es primo
+    }
+
+    int obtenerNumero() {
+     return num;
+    }
+};
+
+int main() {
+    int numero;
+    
+    // Solicitar al usuario que ingrese un número
+    cout << "Ingresa un número: ";
+    cin >> numero;
+
+    Numero n(numero);
+
+    if (n.esPrimo()) {
+        cout << numero << " es un número primo." << endl;
+    } else {
+        cout << numero << " no es un número primo." << endl;
+    }
+
+    return 0;
+}
